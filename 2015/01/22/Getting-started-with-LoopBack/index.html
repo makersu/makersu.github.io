@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo Basic | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
+  <title>Getting started with LoopBack | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
   <meta name="author" content="Maker Su">
   
-  <meta name="description" content="Categories &amp;amp; Tags
-12345categories:- Diarytags:- PS3- Games
+  <meta name="description" content="Create new application
+1$ slc loopback
 
-Drafts
-12$ hexo new draft &amp;lt;title&amp;gt;$ hexo server --drafts">
+Install Mongodb Connector
+1$ npm install loopback-connector-mongodb --save
+
+Create a MongoDB data source
+/serv">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo Basic"/>
+  <meta property="og:title" content="Getting started with LoopBack"/>
   <meta property="og:site_name" content="&quot;If ya smell what The Maker Su is cookin...&quot;"/>
 
   
@@ -54,23 +57,24 @@ Drafts
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-01-17T16:48:14.000Z"><a href="/2015/01/18/Hexo-Basic/">Jan 18 2015</a></time>
+        <time datetime="2015-01-22T05:54:04.000Z"><a href="/2015/01/22/Getting-started-with-LoopBack/">Jan 22 2015</a></time>
       
       
   
-    <h1 class="title">Hexo Basic</h1>
+    <h1 class="title">Getting started with LoopBack</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="Categories_&amp;_Tags">Categories &amp; Tags</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">categories:</div><div class="line">-<span class="ruby"> <span class="constant">Diary</span></span></div><div class="line">tags:</div><div class="line">-<span class="ruby"> <span class="constant">PS3</span></span></div><div class="line">-<span class="ruby"> <span class="constant">Games</span></span></div></pre></td></tr></table></figure>
+        <h2 id="Create_new_application">Create new application</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>slc loopback</div></pre></td></tr></table></figure>
 
-<h2 id="Drafts">Drafts</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo new draft &lt;title&gt;</div><div class="line"><span class="variable">$ </span>hexo server --drafts</div></pre></td></tr></table></figure>
+<h2 id="Install_Mongodb_Connector">Install Mongodb Connector</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="operator"><span class="keyword">install</span> loopback-connector-mongodb <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
-
+<h2 id="Create_a_MongoDB_data_source">Create a MongoDB data source</h2>
+<figure class="highlight"><figcaption><span>/server/datasources.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"mydb"</span>: {</div><div class="line">    <span class="string">"name"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"connector"</span>: <span class="string">"mongodb"</span>,</div><div class="line">}</div></pre></td></tr></table></figure>
       
     </div>
     <footer>
@@ -79,7 +83,7 @@ Drafts
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/loopback/">loopback</a>
   </div>
 
         
@@ -122,7 +126,7 @@ Drafts
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2015/01/18/Hexo-Basic/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2015/01/22/Getting-started-with-LoopBack/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

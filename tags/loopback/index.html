@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>markdown | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
+  <title>loopback | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
   <meta name="author" content="Maker Su">
   
   
@@ -43,7 +43,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">markdown</h2>
+<h2 class="archive-title tag">loopback</h2>
 
 
   
@@ -53,25 +53,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-01-18T10:56:20.000Z"><a href="/2015/01/18/Markdown-Syntax/">Jan 18 2015</a></time>
+        <time datetime="2015-01-22T05:54:04.000Z"><a href="/2015/01/22/Getting-started-with-LoopBack/">Jan 22 2015</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/01/18/Markdown-Syntax/">Markdown Syntax</a></h1>
+    <h1 class="title"><a href="/2015/01/22/Getting-started-with-LoopBack/">Getting started with LoopBack</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="This_is_deleted_text-">This <del>is deleted text.</del></h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This ~~<span class="keyword">is</span> deleted <span class="keyword">text</span>.~~</div></pre></td></tr></table></figure>
+        <h2 id="Create_new_application">Create new application</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>slc loopback</div></pre></td></tr></table></figure>
 
-<h2 id="Code_Block(Hexo)">Code Block(Hexo)</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">{"% codeblock <span class="attr_selector">[title]</span> <span class="attr_selector">[lang:language]</span> <span class="attr_selector">[url]</span> <span class="attr_selector">[link text]</span> %}</div><div class="line"><span class="tag">code</span> snippet</div><div class="line">{"% endcodeblock %}</div></pre></td></tr></table></figure>
+<h2 id="Install_Mongodb_Connector">Install Mongodb Connector</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="operator"><span class="keyword">install</span> loopback-connector-mongodb <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
-<h2 id="Links">Links</h2>
-<p><a href="http://en.wikipedia.org/wiki/Markdown" target="_blank" rel="external">Wikipedia Markdown </a><br><a href="http://hexo.io/docs/tag-plugins.html" target="_blank" rel="external">Hexo Tag Plugins</a><br><a href="http://pages.tzengyuxio.me/pandoc/" target="_blank" rel="external">Pandoc(cht)</a></p>
-
+<h2 id="Create_a_MongoDB_data_source">Create a MongoDB data source</h2>
+<figure class="highlight"><figcaption><span>/server/datasources.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"mydb"</span>: {</div><div class="line">    <span class="string">"name"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"connector"</span>: <span class="string">"mongodb"</span>,</div><div class="line">}</div></pre></td></tr></table></figure>
       
     </div>
     <footer>
