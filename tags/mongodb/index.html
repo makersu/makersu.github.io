@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mongodb | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
+  <meta name="author" content="Maker Su">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="&quot;If ya smell what The Maker Su is cookin...&quot;"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="&quot;If ya smell what The Maker Su is cookin...&quot;" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">&quot;If ya smell what The Maker Su is cookin...&quot;</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">mongodb</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-04-01T09:00:58.000Z"><a href="/2015/04/01/Nginx-with-GridFS/">Apr 1 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/04/01/Nginx-with-GridFS/">Nginx with GridFS</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="Install_Nginx_with_GridFS_module">Install Nginx with GridFS module</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">wget http:<span class="comment">//nginx.org/download/nginx-1.6.0.tar.gz</span></div><div class="line">tar -zxvf nginx-<span class="number">1.6</span>.<span class="number">0</span>.tar.gz</div><div class="line">git clone https:<span class="comment">//github.com/mdirolf/nginx-gridfs.git</span></div><div class="line">cd nginx-gridfs</div><div class="line">git clone https:<span class="comment">//github.com/eagleas/mongo-c-driver.git</span></div><div class="line">cd ../nginx-<span class="number">1.6</span>.<span class="number">0</span></div><div class="line">./configure --<span class="keyword">add</span>-<span class="keyword">module</span>=../nginx-gridfs/</div><div class="line">vi objs/Makefile (<span class="keyword">remove</span> -Werror)</div><div class="line">make</div><div class="line">make install</div><div class="line">/usr/local/nging/sbin/nginx</div></pre></td></tr></table></figure>
+
+<h2 id="Config_Nginx_(vi_/usr/local/nginx/conf/nginx-conf)">Config Nginx (vi /usr/local/nginx/conf/nginx.conf)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">location</span> /nuchat/ {</div><div class="line">	<span class="title">gridfs</span> nuchat;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Add_files_to_gridfs_by_mongofiles">Add files to gridfs by mongofiles</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mongofiles <span class="operator">-d</span> nuchat put xxx.png</div><div class="line">mongofiles <span class="operator">-d</span> nuchat list</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-04-01T08:58:26.000Z"><a href="/2015/04/01/install-mongodb-and-deploy-replica-set/">Apr 1 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/04/01/install-mongodb-and-deploy-replica-set/">Ubuntu Install Mongodb 2.6.8 and Deploy Replica Set</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Install_MongoDB_on_Ubuntu"><a href="http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="external">Install MongoDB on Ubuntu</a></h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-key adv --keyserver hkp://keyserver.ubuntu.com:<span class="number">80</span> --recv <span class="number">7</span>F0CEB10</div><div class="line"><span class="built_in">echo</span> <span class="string">'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'</span> | <span class="built_in">sudo</span> tee /etc/apt/sources.list.d/mongodb.list</div><div class="line"><span class="built_in">sudo</span> apt-get update</div><div class="line"><span class="built_in">sudo</span> apt-get install -y mongodb-org</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-server hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-shell hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-mongos hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-tools hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div></pre></td></tr></table></figure>
+
+<h1 id="Deploy_a_Replica_Set"><a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank" rel="external">Deploy a Replica Set</a></h1>
+<h2 id="Config_mongodb_for_each_mahine(vi_/etc/mongod-conf)">Config mongodb for each mahine(vi /etc/mongod.conf)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#bind_ip = 127.0.0.1</span></div><div class="line"><span class="variable">replSet=</span>nucloud</div></pre></td></tr></table></figure>
+
+<h2 id="Add_an_Arbiter(more_then_one_machine?)">Add an Arbiter(more then one machine?)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mkdir</span> <span class="comment">/data/arb</span></div><div class="line"><span class="comment">mongod</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">30000</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dbpath</span> <span class="comment">/data/arb</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">replSet</span> <span class="comment">nucloud</span></div></pre></td></tr></table></figure>
+
+<h2 id="Add_replica_set(for_only_one_machine)">Add replica set(for only one machine)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rs.initiate(<span class="constant">null</span>)</div><div class="line">rs.<span class="built_in">add</span>(<span class="string">"192.168.11.1:27017"</span>)</div><div class="line">rs.addArb(<span class="string">"192.168.11.100:27017"</span>)</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/hexo/">hexo</a><small>3</small></li>
+  
+    <li><a href="/tags/loopback/">loopback</a><small>3</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mongodb/">mongodb</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Maker Su
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

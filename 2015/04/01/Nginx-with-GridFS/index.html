@@ -3,19 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo Basic | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
+  <title>Nginx with GridFS | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
   <meta name="author" content="Maker Su">
   
-  <meta name="description" content="Categories &amp;amp; Tags
-12345categories:- Diarytags:- PS3- Games
-
-Drafts
-12$ hexo new draft &amp;lt;title&amp;gt;$ hexo server --drafts">
+  <meta name="description" content="Install Nginx with GridFS module
+1234567891011wget http://nginx.org/download/nginx-1.6.0.tar.gztar -zxvf nginx-1.6.0.tar.gzgit clone https://github.co">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo Basic"/>
+  <meta property="og:title" content="Nginx with GridFS"/>
   <meta property="og:site_name" content="&quot;If ya smell what The Maker Su is cookin...&quot;"/>
 
   
@@ -54,21 +51,24 @@ Drafts
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-01-17T16:48:14.000Z"><a href="/2015/01/18/Hexo-Basic/">Jan 18 2015</a></time>
+        <time datetime="2015-04-01T09:00:58.000Z"><a href="/2015/04/01/Nginx-with-GridFS/">Apr 1 2015</a></time>
       
       
   
-    <h1 class="title">Hexo Basic</h1>
+    <h1 class="title">Nginx with GridFS</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="Categories_&amp;_Tags">Categories &amp; Tags</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">categories:</div><div class="line">-<span class="ruby"> <span class="constant">Diary</span></span></div><div class="line">tags:</div><div class="line">-<span class="ruby"> <span class="constant">PS3</span></span></div><div class="line">-<span class="ruby"> <span class="constant">Games</span></span></div></pre></td></tr></table></figure>
+        <h2 id="Install_Nginx_with_GridFS_module">Install Nginx with GridFS module</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">wget http:<span class="comment">//nginx.org/download/nginx-1.6.0.tar.gz</span></div><div class="line">tar -zxvf nginx-<span class="number">1.6</span>.<span class="number">0</span>.tar.gz</div><div class="line">git clone https:<span class="comment">//github.com/mdirolf/nginx-gridfs.git</span></div><div class="line">cd nginx-gridfs</div><div class="line">git clone https:<span class="comment">//github.com/eagleas/mongo-c-driver.git</span></div><div class="line">cd ../nginx-<span class="number">1.6</span>.<span class="number">0</span></div><div class="line">./configure --<span class="keyword">add</span>-<span class="keyword">module</span>=../nginx-gridfs/</div><div class="line">vi objs/Makefile (<span class="keyword">remove</span> -Werror)</div><div class="line">make</div><div class="line">make install</div><div class="line">/usr/local/nging/sbin/nginx</div></pre></td></tr></table></figure>
 
-<h2 id="Drafts">Drafts</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo new draft &lt;title&gt;</div><div class="line"><span class="variable">$ </span>hexo server --drafts</div></pre></td></tr></table></figure>
+<h2 id="Config_Nginx_(vi_/usr/local/nginx/conf/nginx-conf)">Config Nginx (vi /usr/local/nginx/conf/nginx.conf)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="title">location</span> /nuchat/ {</div><div class="line">	<span class="title">gridfs</span> nuchat;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="Add_files_to_gridfs_by_mongofiles">Add files to gridfs by mongofiles</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mongofiles <span class="operator">-d</span> nuchat put xxx.png</div><div class="line">mongofiles <span class="operator">-d</span> nuchat list</div></pre></td></tr></table></figure>
 
 
       
@@ -79,7 +79,7 @@ Drafts
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/mongodb/">mongodb</a>
   </div>
 
         
@@ -122,7 +122,7 @@ Drafts
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2015/01/18/Hexo-Basic/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2015/04/01/Nginx-with-GridFS/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

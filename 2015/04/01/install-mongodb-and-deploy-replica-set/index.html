@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu Install Mongodb 2.6.8 and Deploy Replica Set | &quot;If ya smell what The Maker Su is cookin...&quot;</title>
+  <meta name="author" content="Maker Su">
+  
+  <meta name="description" content="Install MongoDB on Ubuntu
+123456789sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10echo &#39;deb http://downloads-distro.mongodb">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ubuntu Install Mongodb 2.6.8 and Deploy Replica Set"/>
+  <meta property="og:site_name" content="&quot;If ya smell what The Maker Su is cookin...&quot;"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="&quot;If ya smell what The Maker Su is cookin...&quot;" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">&quot;If ya smell what The Maker Su is cookin...&quot;</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-04-01T08:58:26.000Z"><a href="/2015/04/01/install-mongodb-and-deploy-replica-set/">Apr 1 2015</a></time>
+      
+      
+  
+    <h1 class="title">Ubuntu Install Mongodb 2.6.8 and Deploy Replica Set</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Install_MongoDB_on_Ubuntu"><a href="http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/" target="_blank" rel="external">Install MongoDB on Ubuntu</a></h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-key adv --keyserver hkp://keyserver.ubuntu.com:<span class="number">80</span> --recv <span class="number">7</span>F0CEB10</div><div class="line"><span class="built_in">echo</span> <span class="string">'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'</span> | <span class="built_in">sudo</span> tee /etc/apt/sources.list.d/mongodb.list</div><div class="line"><span class="built_in">sudo</span> apt-get update</div><div class="line"><span class="built_in">sudo</span> apt-get install -y mongodb-org</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-server hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-shell hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-mongos hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div><div class="line"><span class="built_in">echo</span> <span class="string">"mongodb-org-tools hold"</span> | <span class="built_in">sudo</span> dpkg --set-selections</div></pre></td></tr></table></figure>
+
+<h1 id="Deploy_a_Replica_Set"><a href="http://docs.mongodb.org/manual/tutorial/deploy-replica-set/" target="_blank" rel="external">Deploy a Replica Set</a></h1>
+<h2 id="Config_mongodb_for_each_mahine(vi_/etc/mongod-conf)">Config mongodb for each mahine(vi /etc/mongod.conf)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#bind_ip = 127.0.0.1</span></div><div class="line"><span class="variable">replSet=</span>nucloud</div></pre></td></tr></table></figure>
+
+<h2 id="Add_an_Arbiter(more_then_one_machine?)">Add an Arbiter(more then one machine?)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mkdir</span> <span class="comment">/data/arb</span></div><div class="line"><span class="comment">mongod</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">30000</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dbpath</span> <span class="comment">/data/arb</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">replSet</span> <span class="comment">nucloud</span></div></pre></td></tr></table></figure>
+
+<h2 id="Add_replica_set(for_only_one_machine)">Add replica set(for only one machine)</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rs.initiate(<span class="constant">null</span>)</div><div class="line">rs.<span class="built_in">add</span>(<span class="string">"192.168.11.1:27017"</span>)</div><div class="line">rs.addArb(<span class="string">"192.168.11.100:27017"</span>)</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/mongodb/">mongodb</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/04/01/install-mongodb-and-deploy-replica-set/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/hexo/">hexo</a><small>3</small></li>
+  
+    <li><a href="/tags/loopback/">loopback</a><small>3</small></li>
+  
+    <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mongodb/">mongodb</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Maker Su
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

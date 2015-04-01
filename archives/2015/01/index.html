@@ -53,11 +53,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-01-22T05:54:04.000Z"><a href="/2015/01/22/Getting-started-with-LoopBack/">Jan 22 2015</a></time>
+        <time datetime="2015-01-22T05:54:04.000Z"><a href="/2015/01/22/Getting-started-with-LoopBack-and-mongodb/">Jan 22 2015</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/01/22/Getting-started-with-LoopBack/">Getting started with LoopBack</a></h1>
+    <h1 class="title"><a href="/2015/01/22/Getting-started-with-LoopBack-and-mongodb/">Getting started with LoopBack and MongoDB</a></h1>
   
 
     </header>
@@ -70,10 +70,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="operator"><span class="keyword">install</span> loopback-connector-mongodb <span class="comment">--save</span></span></div></pre></td></tr></table></figure>
 
 <h2 id="Create_a_MongoDB_data_source">Create a MongoDB data source</h2>
-<figure class="highlight"><figcaption><span>/server/datasources.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">"mydb"</span>: {</div><div class="line">    <span class="string">"name"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"database"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"connector"</span>: <span class="string">"mongodb"</span></div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="Update_model_config">Update model config</h2>
-<figure class="highlight"><figcaption><span>/server/model-config.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="string">"User"</span>: {</div><div class="line">    <span class="string">"dataSource"</span>: <span class="string">"mydb"</span></div><div class="line">  },</div><div class="line">  <span class="string">"AccessToken"</span>: {</div><div class="line">    <span class="string">"dataSource"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"public"</span>: <span class="literal">false</span></div><div class="line">  },</div><div class="line">  <span class="string">"ACL"</span>: {</div><div class="line">    <span class="string">"dataSource"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"public"</span>: <span class="literal">false</span></div><div class="line">  },</div><div class="line">  <span class="string">"RoleMapping"</span>: {</div><div class="line">    <span class="string">"dataSource"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"public"</span>: <span class="literal">false</span></div><div class="line">  },</div><div class="line">  <span class="string">"Role"</span>: {</div><div class="line">    <span class="string">"dataSource"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"public"</span>: <span class="literal">false</span></div><div class="line">  }</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>/server/datasources.json</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">...</span></div><div class="line"><span class="string">"db"</span>: {</div><div class="line">    <span class="string">"name"</span>: <span class="string">"db"</span>,</div><div class="line">    <span class="string">"database"</span>: <span class="string">"mydb"</span>,</div><div class="line">    <span class="string">"connector"</span>: <span class="string">"mongodb"</span></div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h2 id="Create_models">Create models</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">slc</span> <span class="tag">loopback</span><span class="pseudo">:model</span></div></pre></td></tr></table></figure>
@@ -292,9 +289,11 @@
   
     <li><a href="/tags/hexo/">hexo</a><small>3</small></li>
   
-    <li><a href="/tags/loopback/">loopback</a><small>1</small></li>
+    <li><a href="/tags/loopback/">loopback</a><small>3</small></li>
   
     <li><a href="/tags/markdown/">markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/mongodb/">mongodb</a><small>2</small></li>
   
   </ul>
 </div>
